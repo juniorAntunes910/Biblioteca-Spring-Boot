@@ -38,13 +38,24 @@ public class BookController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    @PatchMapping("/{title}/{new-title}/title")
-    public ResponseEntity<Book> alternarNome(@PathVariable String nome, @PathVariable String novoNome){
-        return bookRepository.findByTitulo(nome).map(book -> {
-            book.setTitle(novoNome);
+    @PatchMapping("/{title}/{newTitle}/title")
+    public ResponseEntity<Book> alternarNome(@PathVariable String title, @PathVariable String newTitle){
+        return bookRepository.findByTitle(title).map(book -> {
+            book.setTitle(newTitle);
             Book atualizado = bookRepository.save(book);
             return ResponseEntity.ok(atualizado);
         }).orElse(ResponseEntity.notFound().build());
     }
-    /*t*/
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Book> deletaLivro(@PathVariable Long id){
+        if(!bookRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+        bookRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+
 }
