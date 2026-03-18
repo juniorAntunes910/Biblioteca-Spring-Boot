@@ -26,3 +26,29 @@ async function carregarLivro() {
 }
 
 carregarLivro();
+
+
+const modal = document.getElementById("modalLivro");
+const btnAbrir = document.getElementById("btnAbrirModal");
+const spanFechar = document.querySelector(".fechar");
+const form = document.getElementById("formLivro");
+
+btnAbrir.onclick = () => modal.style.display = "block";
+spanFechar.onclick = () => modal.style.display = "none";
+
+form.onsubmit = async (event) => {
+    event.preventDefault();
+
+    const novoLivro = {
+        title: document.getElementById("title").value,
+        isbn: document.getElementById("isbn").value,
+        author: document.getElementById("author").value,
+        avaiable: true
+    };
+
+    try {
+        const response = await fetch("https://localhost:8080/Book"), {
+
+        }
+    }
+}
