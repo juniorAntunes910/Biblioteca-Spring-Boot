@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: red;
+}
+
+header nav{
+    font-size: 2rem;
+    font-weight: 900;
+    padding-top: 3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#livros{
+    margin: 2rem;
+    text-align: center;
+}

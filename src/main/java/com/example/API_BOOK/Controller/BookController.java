@@ -19,7 +19,7 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @GetMapping
+    @GetMapping()
     public List<Book> listarTodos(){
         return bookRepository.findAll();
     }
