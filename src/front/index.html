@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-Spring</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav>
             <h1>Book-Spring</h1>
             <ul>
-                <li><button id="btnAbrirModal">Novo Livro</button></li>
+                <li>
+                    <button id="btnAbrirModal">Novo Livro</button>
+
+                    <div id="modalLivro" class="modal">
+                        <div class="modal-content">
+                            <span class="fechar">&times;</span>
+                            <h2>Cadastrar Livro</h2>
+                            <form id="form-livro">
+                                <input type="text" placeholder="Titulo" required>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </li>
             </ul>
+            
         </nav>
     </header>
-
     <main>
+        
         <section id="livros">
-            <h2>Livros Cadastrados</h2>
+            <h2>Livros</h2>
             <table id="tabela-livros">
-                </table>
+            </table>
+            <script src="script.js"></script> 
         </section>
+
     </main>
-
-    <div id="modalLivro" class="modal">
-        <div class="modal-content">
-            <span class="fechar">&times;</span>
-            <h2>Cadastrar Livro</h2>
-            <form id="formlivro">
-                <input type="text" id="title" placeholder="Título" required>
-                <input type="text" id="isbn" placeholder="ISBN único" required>
-                <input type="text" id="author" placeholder="Autor" required>
-                <button type="submit">Salvar no Banco</button>
-            </form>
-        </div>
-    </div>
-
     <footer>
-        <p>&copy; 2024 - Book Spring Project</p>
-    </footer>
 
-    <script src="script.js"></script> 
+    </footer>
 </body>
+
 </html>
