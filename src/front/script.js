@@ -31,7 +31,7 @@ carregarLivro();
 const modal = document.getElementById("modalLivro");
 const btnAbrir = document.getElementById("btnAbrirModal");
 const spanFechar = document.querySelector(".fechar");
-const form = document.getElementById("formLivro");
+const form = document.getElementById("formlivro");
 
 btnAbrir.onclick = () => modal.style.display = "block";
 spanFechar.onclick = () => modal.style.display = "none";
@@ -47,8 +47,22 @@ form.onsubmit = async (event) => {
     };
 
     try {
-        const response = await fetch("https://localhost:8080/Book"), {
+        const response = await fetch("http://localhost:8080/Book", {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(novoLivro)
+        });
 
+        if (response.ok) {
+            alert("Livro Cadastrado!");
+            modal.style.display = "none";
+            form.reset();
+            carregarLivro();
+        } else{
+            const erro = await response.json();
+            alert("Erro: " + (erro.message || "ISBN duplicado"));
         }
+    } catch(error){
+        console.log("Erro no post", error)
     }
 }
